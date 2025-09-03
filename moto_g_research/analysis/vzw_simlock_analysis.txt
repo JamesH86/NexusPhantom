@@ -1,0 +1,112 @@
+=== VZW REMOTE SIMLOCK SERVICE ANALYSIS ===
+Service Resolver Table:
+  Non-Data Actions:
+      com.verizon.remoteSimlock.RSU_SERVICE:
+        82a396d com.verizon.remoteSimlock/.VZWRemoteSimlockService filter ec7d9a2 permission com.verizon.permission.ACCESS_REMOTE_SIMLOCK
+          Action: "com.verizon.remoteSimlock.RSU_SERVICE"
+
+Domain verification status:
+
+Permissions:
+  Permission [com.verizon.permission.ACCESS_REMOTE_SIMLOCK] (53add64):
+    sourcePackage=com.verizon.remoteSimlock
+    uid=10126 gids=[] type=0 prot=signature|privileged
+    perm=PermissionInfo{8dcebcd com.verizon.permission.ACCESS_REMOTE_SIMLOCK}
+
+Key Set Manager:
+  [com.verizon.remoteSimlock]
+      Signing KeySets: 1
+
+Packages:
+  Package [com.verizon.remoteSimlock] (be2848e):
+    userId=10126
+    sharedUser=SharedUserSetting{3770c82 mediatek.uid.rsu/10126}
+    pkg=Package{e0c1f93 com.verizon.remoteSimlock}
+    codePath=/system/app/VZWRemoteSimlockService
+    resourcePath=/system/app/VZWRemoteSimlockService
+    legacyNativeLibraryDir=/system/app/VZWRemoteSimlockService/lib
+    extractNativeLibs=true
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=102 minSdk=29 targetSdk=33
+    minExtensionVersions=[]
+    versionName=1.2
+    usesNonSdkApi=true
+    splits=[base]
+    apkSigningVersion=3
+    flags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    dataDir=/data/user/0/com.verizon.remoteSimlock
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2008-12-31 19:00:00
+    lastUpdateTime=2008-12-31 19:00:00
+    packageSource=0
+    signatures=PackageSignatures{b7a6bd0 version:3, signatures:[5ec13af3], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA ]
+    declared permissions:
+      com.verizon.permission.ACCESS_REMOTE_SIMLOCK: prot=signature|privileged, INSTALLED
+    requested permissions:
+      android.permission.WAKE_LOCK
+    install permissions:
+      android.permission.WAKE_LOCK: granted=true
+    User 0: ceDataInode=3807 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=1 instant=false virtual=false
+      installReason=0
+      firstInstallTime=2008-12-31 19:00:00
+      uninstallReason=0
+      overlay paths:
+        /product/overlay/NavigationBarMode3Button/NavigationBarMode3ButtonOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-nW6v.frro
+        /product/overlay/FontRookeryRegular/FontRookeryRegularOverlay.apk
+        /data/resource-cache/com.android.systemui-accent-IJn6.frro
+      legacy overlay paths:
+        /product/overlay/NavigationBarMode3Button/NavigationBarMode3ButtonOverlay.apk
+        /product/overlay/FontRookeryRegular/FontRookeryRegularOverlay.apk
+
+Queries:
+  system apps queryable: false
+  queries via forceQueryable:
+  forceQueryable:
+    com.verizon.remoteSimlock
+  queries via package name:
+  queries via component:
+  queryable via interaction:
+    User 0:
+      com.verizon.remoteSimlock:
+        com.verizon.mips.services
+  queryable via uses-library:
+
+Shared users:
+  SharedUser [mediatek.uid.rsu] (3770c82):
+    userId=10126
+    Packages
+      PackageSetting{be2848e com.verizon.remoteSimlock/10126}
+    install permissions:
+      android.permission.WAKE_LOCK: granted=true
+    User 0: 
+      runtime permissions:
+
+Dexopt state:
+  [com.verizon.remoteSimlock]
+    path: /system/app/VZWRemoteSimlockService/VZWRemoteSimlockService.apk
+      arm: [status=speed-profile] [reason=bg-dexopt]
+  BgDexopt state:
+    enabled:true
+    mDexOptThread:null
+    mDexOptCancellingThread:null
+    mFinishedPostBootUpdate:false
+    mLastExecutionStatus:0
+    mLastExecutionStartTimeMs:0
+    mLastExecutionDurationIncludingSleepMs:0
+    mLastExecutionStartUptimeMs:0
+    mLastExecutionDurationMs:0
+    now:1674550
+    mLastCancelledPackages:
+    mFailedPackageNamesPrimary:
+    mFailedPackageNamesSecondary:
+
+Compiler stats:
+  [com.verizon.remoteSimlock]
+     VZWRemoteSimlockService.apk - 898

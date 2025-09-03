@@ -1,0 +1,70 @@
+# NEXUS PHANTOM - Enterprise Cybersecurity AI Platform
+# Network EXploit Unified System - Penetration & Hacking Adversarial Network Tool for Offensive Management
+
+name: NexusPhantom
+platforms:
+  macOS: '13.0'
+
+packages:
+  SwiftGRPC:
+    url: https://github.com/grpc/grpc-swift
+    version: 1.21.0
+  CombineGRPC:
+    url: https://github.com/grpc/grpc-swift-combine
+    version: 1.0.0
+
+targets:
+  NexusPhantom:
+    type: application
+    platform: macOS
+    deploymentTarget: '13.0'
+    sources: [NexusPhantom]
+    dependencies:
+      - SwiftGRPC
+      - CombineGRPC
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.cybersecsolutions.nexusphantom
+      MACOSX_DEPLOYMENT_TARGET: '13.0'
+      ENABLE_HARDENED_RUNTIME: YES
+      CODE_SIGN_STYLE: Automatic
+      DEVELOPMENT_TEAM: YOUR_TEAM_ID
+    entitlements:
+      - com.apple.security.network.client
+      - com.apple.security.network.server
+      - com.apple.security.device.audio-input
+      - com.apple.security.device.microphone
+      - com.apple.security.files.user-selected.read-write
+      - com.apple.security.automation.apple-events
+      - com.apple.security.cs.allow-jit
+      - com.apple.security.cs.allow-unsigned-executable-memory
+      - com.apple.security.cs.disable-library-validation
+
+  NexusPhantomCore:
+    type: framework
+    platform: macOS
+    sources: [NexusPhantomCore]
+    dependencies:
+      - SwiftGRPC
+      - CombineGRPC
+
+  NexusPhantomTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [NexusPhantomTests]
+    dependencies:
+      - NexusPhantom
+      - NexusPhantomCore
+
+schemes:
+  NexusPhantom:
+    build:
+      targets:
+        NexusPhantom: all
+        NexusPhantomCore: all
+    test:
+      targets:
+        - NexusPhantomTests
+    run:
+      config: Debug
+    archive:
+      config: Release
