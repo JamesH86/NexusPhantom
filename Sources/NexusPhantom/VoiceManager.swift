@@ -320,17 +320,19 @@ class VoiceManager: NSObject, ObservableObject {
 }
 
 // MARK: - Speech Recognizer Delegate
-extension VoiceManager: SFSpeechRecognizerDelegate {
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
-        if !available {
-            stopListening()
+extension VoiceManager: @preconcurrency SFSpeechRecognizerDelegate {
+    nonisolated func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        Task { @MainActor in
+            if !available {
+                stopListening()
+            }
         }
     }
 }
 
 // MARK: - Speech Synthesizer Delegate
-extension VoiceManager: AVSpeechSynthesizerDelegate {
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+extension VoiceManager: @preconcurrency AVSpeechSynthesizerDelegate {
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         // Can resume listening after speech output
     }
 }

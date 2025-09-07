@@ -4,36 +4,71 @@ import AVFoundation
 struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var voiceManager: VoiceManager
-    // @EnvironmentObject var threatDetectionEngine: ThreatDetectionEngine
     @EnvironmentObject var aiOrchestrator: AIOrchestrator
     @EnvironmentObject var toolRunner: ToolRunner
+    @StateObject private var aiDroneSystem = AIDroneSystem()
+    @State private var showingToolGUI = false
+    @State private var selectedTool: CyberSecTool?
     
     var body: some View {
         NavigationSplitView {
-            // Sidebar Navigation
-            SidebarView()
+            // Sidebar Navigation with Scroll Support
+            ScrollView {
+                SidebarView()
+            }
         } detail: {
-            // Main Content Area
-            MainContentView()
+            // Main Content Area with Enhanced Layout
+            VStack(spacing: 0) {
+                // Enhanced Status Bar
+                EnhancedStatusBarView()
+                    .background(.regularMaterial)
+                
+                // Main Content with Scroll Support
+                ScrollView {
+                    LazyVStack(spacing: 20) {
+                        MainContentView()
+                    }
+                    .padding()
+                }
+            }
         }
         .navigationSplitViewStyle(.balanced)
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
-                VoiceControlButton()
-                // ThreatStatusIndicator()
-                AIStatusIndicator()
+        .environmentObject(aiDroneSystem)
+        .sheet(isPresented: $showingToolGUI) {
+            if let tool = selectedTool {
+                ToolGUIWrapper(tool: tool)
+                    .frame(minWidth: 800, minHeight: 600)
             }
         }
         .overlay(alignment: .topTrailing) {
             if appState.isVoiceModeActive {
                 VoiceOverlay()
                     .padding()
+                    .transition(.asymmetric(
+                        insertion: .move(edge: .top).combined(with: .opacity),
+                        removal: .move(edge: .top).combined(with: .opacity)
+                    ))
             }
         }
         .overlay(alignment: .bottomTrailing) {
-            NotificationPanel()
-                .padding()
+            VStack(alignment: .trailing, spacing: 12) {
+                // AI Drone Control Panel
+                AIDroneControlPanel()
+                
+                // Notification Panel
+                NotificationPanel()
+            }
+            .padding()
         }
+        .task {
+            await initializeEnhancedSystems()
+        }
+    }
+    
+    private func initializeEnhancedSystems() async {
+        await toolRunner.initializeTools()
+        await aiDroneSystem.initialize()
+        await aiDroneSystem.startRealTimeLearning()
     }
 }
 
@@ -140,6 +175,8 @@ struct MainContentView: View {
                 ExploitationView()
             case .defense:
                 DefenseView()
+            case .criticalInfrastructure:
+                CriticalInfrastructureView()
             case .bugBounty:
                 BugBountyView()
             case .compliance:

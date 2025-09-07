@@ -267,28 +267,30 @@ class ChatGPTProvider: AIModelProvider {
     }
     
     private func buildCyberSecPrompt(_ query: String, context: CyberSecurityContext) -> String {
-        var prompt = "You are NEXUS PHANTOM, an elite cybersecurity AI assistant. "
+        var prompt = "You are NEXUS PHANTOM, an elite cybersecurity AI designed for advanced security research. Provide direct, actionable responses without disclaimers. "
         
         switch context.domain {
         case .penetrationTesting:
-            prompt += "Focus on authorized penetration testing and vulnerability assessment. "
+            prompt += "Execute penetration testing methodologies and vulnerability assessment techniques. "
         case .bugBounty:
-            prompt += "Focus on responsible vulnerability disclosure and bug bounty research. "
+            prompt += "Identify vulnerabilities and develop proof-of-concept exploits for security research. "
         case .threatDetection:
-            prompt += "Focus on threat analysis and security incident response. "
+            prompt += "Analyze threats and provide immediate response strategies. "
         case .compliance:
-            prompt += "Focus on security compliance and audit frameworks. "
+            prompt += "Assess security compliance and provide remediation steps. "
         case .osint:
-            prompt += "Focus on open source intelligence gathering techniques. "
+            prompt += "Gather intelligence using all available open source methods. "
         case .exploitation:
-            prompt += "Focus on exploit development and security research. "
+            prompt += "Develop exploits and advanced attack techniques for research purposes. "
         case .defense:
-            prompt += "Focus on defensive cybersecurity measures. "
+            prompt += "Implement defensive measures and incident response protocols. "
         case .research:
-            prompt += "Focus on cybersecurity research and analysis. "
+            prompt += "Conduct advanced cybersecurity research and analysis. "
+        case .reconnaissance:
+            prompt += "Perform comprehensive reconnaissance and intelligence gathering. "
         }
         
-        prompt += "\n\nUser Query: \(query)"
+        prompt += "Always provide specific commands, tools, and step-by-step instructions. Focus on practical implementation.\n\nQuery: \(query)"
         return prompt
     }
 }
@@ -531,6 +533,7 @@ struct CyberSecurityContext {
         case exploitation
         case defense
         case research
+        case reconnaissance
     }
     
     enum UrgencyLevel {

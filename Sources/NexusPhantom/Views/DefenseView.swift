@@ -239,23 +239,7 @@ struct IncidentDetailsPanel: View {
     }
 }
 
-struct DetailRow: View {
-    let label: String
-    let value: String
-    
-    var body: some View {
-        HStack(alignment: .top) {
-            Text(label + ":")
-                .font(.body)
-                .fontWeight(.medium)
-                .frame(width: 100, alignment: .leading)
-            
-            Text(value)
-                .font(.body)
-                .foregroundColor(.secondary)
-        }
-    }
-}
+// DetailRow is now defined in CriticalInfrastructureView.swift
 
 struct ResponseActionsPanel: View {
     let incident: SecurityIncident

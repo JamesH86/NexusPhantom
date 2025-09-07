@@ -32,6 +32,7 @@ public struct CyberSecurityContext {
         case exploitation
         case defense
         case research
+        case reconnaissance
     }
     
     public enum UrgencyLevel {

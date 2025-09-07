@@ -1,0 +1,18 @@
+=== macOS Sandbox Testing ===
+Running as: 501:20
+Current directory: /Users/th3gh0st/CyberSecAI/NexusPhantom
+
+[+] Testing file system access...
+  /etc/passwd: Read=True, Write=False
+  /System/Library/Frameworks/: Read=True, Write=False
+  /Users/: Read=True, Write=False
+  ~/Library/Keychains/: Read=True, Write=True
+  /private/var/db/: Read=True, Write=False
+
+[+] Testing network access...
+  Network ping: Success
+
+[+] Testing process access...
+  Process list access: 699 processes visible
+
+=== Testing Complete ===

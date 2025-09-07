@@ -1,0 +1,78 @@
+=== macOS Security Research Enumeration ===
+Timestamp: Thu Sep  4 01:15:42 EDT 2025
+
+--- System Information ---
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: MacBook Pro
+      Model Identifier: MacBookPro15,1
+      Processor Name: 6-Core Intel Core i7
+      Processor Speed: 2.2 GHz
+      Number of Processors: 1
+      Total Number of Cores: 6
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 9 MB
+      Hyper-Threading Technology: Enabled
+      Memory: 16 GB
+      System Firmware Version: 2075.101.2.0.0 (iBridge: 22.16.14248.0.0,0)
+      OS Loader Version: 583~900
+      Serial Number (system): C02XR40WJG5H
+      Hardware UUID: 57193CD5-5942-5A50-A1D2-79098ECF7B6F
+      Provisioning UDID: 57193CD5-5942-5A50-A1D2-79098ECF7B6F
+      Activation Lock Status: Enabled
+--- Security Features ---
+System Integrity Protection: System Integrity Protection status: enabled.
+Secure Boot: 94b73556-2197-4702-82a8-3e1337dafbfb:AppleSecureBootPolicy	%02
+--- Running Services ---
+-	0	com.apple.SafariHistoryServiceAgent
+1389	0	com.apple.progressd
+1757	0	com.apple.cloudphotod
+474	0	com.apple.MENotificationService
+492	0	com.apple.Finder
+578	0	com.apple.homed
+2176	0	com.apple.dataaccess.dataaccessd
+575	0	com.apple.SafeEjectGPUAgent
+-	0	com.apple.quicklook
+-	0	com.apple.parentalcontrols.check
+598	0	com.apple.mediaremoteagent
+506	0	com.apple.FontWorker
+453	0	com.apple.bird
+-	0	com.apple.amp.mediasharingd
+-	0	com.apple.knowledgeconstructiond
+1399	0	com.apple.inputanalyticsd
+-	0	com.apple.familycontrols.useragent
+-	0	com.apple.AssetCache.agent
+438	0	com.apple.GameController.gamecontrolleragentd
+-	0	com.apple.universalaccessAuthWarn
+--- Network Services ---
+tcp6       0      0  *.53                   *.*                    LISTEN     
+tcp4       0      0  *.53                   *.*                    LISTEN     
+tcp4       0      0  127.0.0.1.8021         *.*                    LISTEN     
+tcp6       0      0  ::1.8021               *.*                    LISTEN     
+tcp6       0      0  *.51652                *.*                    LISTEN     
+tcp4       0      0  *.51652                *.*                    LISTEN     
+tcp46      0      0  *.10605                *.*                    LISTEN     
+tcp4       0      0  127.0.0.1.5432         *.*                    LISTEN     
+tcp6       0      0  ::1.5432               *.*                    LISTEN     
+tcp4       0      0  127.0.0.1.49202        *.*                    LISTEN     
+--- Critical Directory Permissions ---
+total 3472
+drwxr-xr-x  412 root  wheel   13184 Apr 12 01:16 .
+drwxr-xr-x  156 root  wheel    4992 Apr 12 01:16 ..
+-rw-r--r--    1 root  wheel     721 Apr 12 01:16 bootps.plist
+-rw-r--r--    1 root  wheel    1253 Apr 12 01:16 com.apple.accessoryd.plist
+-rw-r--r--    1 root  wheel     699 Apr 12 01:16 com.apple.accessoryupdaterd.plist
+-rw-r--r--    1 root  wheel     902 Apr 12 01:16 com.apple.adid.plist
+-rw-r--r--    1 root  wheel     491 Apr 12 01:16 com.apple.afpfs_afpLoad.plist
+-rw-r--r--    3 root  wheel     524 Apr 12 01:16 com.apple.afpfs_checkafp.plist
+-rw-r--r--    1 root  wheel    1395 Apr 12 01:16 com.apple.AirPlayXPCHelper.plist
+total 24
+drwxr-xr-x   5 root  wheel   160 Sep  2 02:11 .
+drwxr-xr-x  68 root  wheel  2176 Aug 28 21:35 ..
+-rw-r--r--   1 root  wheel   580 Sep  2 02:11 com.lindegroup.AutoPkgr.helper.plist
+-rw-r--r--   1 root  wheel   464 Jan  1  2024 org.wireshark.ChmodBPF.plist
+-rw-r--r--   1 root  wheel   633 Jan 26  2023 org.xquartz.privileged_startx.plist
+--- Applications with Elevated Permissions ---
+=== Enumeration Complete ===
